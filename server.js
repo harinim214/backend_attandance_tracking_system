@@ -25,10 +25,13 @@ app.use("/api/staff", staffRoutes);
 app.use("/api/student", studentRoutes);
 app.use("/api/subject", subjectRoutes);
 app.use("/api/attendance", attendanceRoutes);
-app.use("/uploads", express.static("uploads"));
 app.use("/api/timetable", timetableRoutes);
-app.use("/api/admin", adminRoutes);
 
-app.listen(process.env.PORT, () =>
-  console.log(`Server running on port ${process.env.PORT}`)
+
+app.use("/uploads", express.static("uploads"));
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () =>
+  console.log(`🚀 Server running on port ${PORT}`)
 );
